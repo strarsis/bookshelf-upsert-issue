@@ -1,0 +1,7 @@
+db:
+  image: postgres:9.1
+  environment:
+    - POSTGRES_USER=app
+    - POSTGRES_PASSWORD=test
+  ports:
+    - 8432:5432
