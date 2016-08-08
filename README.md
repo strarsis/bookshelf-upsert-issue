@@ -1,5 +1,8 @@
 # bookshelf-upsert-issue
 
+Note: For this test, an older postgres server is used.
+
+
 ## Reproducing the issue
 docker and docker-compose (for the postgres server) and a recent nodejs have to be installed.
 
