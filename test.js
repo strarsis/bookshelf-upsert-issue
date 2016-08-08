@@ -20,6 +20,9 @@ var knex1 = Knex(dbConfig),
 
 var Article;
 
+console.log('---');
+console.log('Preparations for test...');	
+console.log('Ensuring database...');
 knex1.select().from('pg_database').where('datname', dbName).limit(1)
 .then(function(res) {
   if(res.length == 0) {
@@ -29,16 +32,19 @@ knex1.select().from('pg_database').where('datname', dbName).limit(1)
 .then(function() {
   knex1.destroy();
 
+  console.log('Running migrations...');
   dbConfig.connection.database = dbName;
   knex2 = Knex(dbConfig);
   return knex2.migrate.latest({ directory: './migrations' });
 })
 .then(function() {
+  console.log('Emptying table...');
   return knex2.raw('TRUNCATE TABLE article');
 })
 .then(function() {
+  console.log('Preparations completed, test starts now.');
+  console.log('---');
   // Preparations ---
-
 
   var bookshelf = require('bookshelf')(knex2);
 
