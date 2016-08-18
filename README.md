@@ -1,6 +1,6 @@
 # bookshelf-upsert-issue
 
-Note: For this test, an older postgres server is used.
+Note: For this test, a recent postgres server is used.
 
 
 ## Reproducing the issue
